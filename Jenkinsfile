@@ -11,22 +11,23 @@ pipeline {
             }
         }
         stage ('Publish to Nexus') {
-            nexusArtifactUploader (
-                artifacts: [
-                    [artifactId: 'petclinic', 
-                     classifier: '', 
-                     file: 'spring-petclinic-1.5.1.jar', 
-                     type: 'jar']
-                ], 
-                credentialsId: '', 
-                groupId: 'petclinic-pipeline', 
-                nexusUrl: 'pipeline-lab01:8081', 
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: '/PetClinic', 
-                version: '3.7'
-            )
-            
+            Steps {
+                nexusArtifactUploader (
+                    artifacts: [
+                        [artifactId: 'petclinic', 
+                        classifier: '', 
+                        file: 'spring-petclinic-1.5.1.jar', 
+                        type: 'jar']
+                    ], 
+                    credentialsId: '', 
+                    groupId: 'petclinic-pipeline', 
+                    nexusUrl: 'pipeline-lab01:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: '/PetClinic', 
+                    version: '3.7'
+                )
+            }
         }
     }
 }

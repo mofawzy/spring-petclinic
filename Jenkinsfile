@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage ('Publish to Nexus') {
-            Steps {
+            steps {
                 nexusArtifactUploader (
                     artifacts: [
                         [artifactId: 'petclinic', 

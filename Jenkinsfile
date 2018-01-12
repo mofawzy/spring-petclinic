@@ -15,7 +15,7 @@ pipeline {
                 sh 'echo current working dir: $(pwd)'
                 nexusArtifactUploader (
                     artifacts: [
-                        [artifactId: 'Pipeline-1', 
+                        [artifactId: 'petclinic', 
                         classifier: 'SNAPSHOT', 
                         file: 'target/spring-petclinic-1.5.1.jar',
                         type: 'jar']
@@ -26,7 +26,7 @@ pipeline {
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'PetClinic/', 
-                    version: '3.7'
+                    version: '1.0'
                 )
             }
         }

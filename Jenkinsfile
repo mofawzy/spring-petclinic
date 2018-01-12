@@ -12,19 +12,20 @@ pipeline {
         }
         stage ('Publish to Nexus') {
             steps {
+                sh 'echo current working dir: $(pwd)'
                 nexusArtifactUploader (
                     artifacts: [
                         [artifactId: 'Pipeline-1', 
-                        classifier: '', 
-                        file: 'archive/target/spring-petclinic-1.5.1.jar',
+                        classifier: 'SNAPSHOT', 
+                        file: 'target/spring-petclinic-1.5.1.jar',
                         type: 'jar']
                     ], 
-                    credentialsId: '', 
+                    credentialsId: 'nexusCredentials', 
                     groupId: 'petclinic-pipeline', 
                     nexusUrl: 'pipeline-lab01:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'PetClinic', 
+                    repository: 'PetClinic/', 
                     version: '3.7'
                 )
             }

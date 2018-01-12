@@ -14,9 +14,9 @@ pipeline {
             steps {
                 nexusArtifactUploader (
                     artifacts: [
-                        [artifactId: 'petclinic', 
+                        [artifactId: 'Pipeline-1', 
                         classifier: '', 
-                        file: 'spring-petclinic-1.5.1.jar', 
+                        file: 'archive/target/spring-petclinic-1.5.1.jar',
                         type: 'jar']
                     ], 
                     credentialsId: '', 
@@ -24,7 +24,7 @@ pipeline {
                     nexusUrl: 'pipeline-lab01:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: '/PetClinic', 
+                    repository: 'PetClinic', 
                     version: '3.7'
                 )
             }

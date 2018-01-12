@@ -26,7 +26,7 @@ pipeline {
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'PetClinic/', 
-                    version: '1.'+$BUILD_ID
+                    version: '1.0'
                 )
             }
         }

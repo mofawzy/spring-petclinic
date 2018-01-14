@@ -12,9 +12,11 @@ pipeline {
                 }
             }
             stage ('Start Application') {
-                 docker.withServer('tcp://pipeline-lab01:2376') {
-                    docker.image('petclinic:1').withRun('-d -p 3306:3306')
-                 }
+                steps {
+                    docker.withServer('tcp://pipeline-lab01:2376') {
+                        docker.image('petclinic:1').withRun('-d -p 3306:3306')
+                     }
+                }
             }
                
       }

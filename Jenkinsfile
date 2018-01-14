@@ -15,7 +15,7 @@ pipeline {
                 steps {
                     script {
                         docker.withServer('tcp://pipeline-lab01:2376') {
-                        docker.image('petclinic:1').withRun('-p 3306:3306')
+                        docker.image('petclinic:1').withRun('-p 7070:7070')
                         }
                     }
                 }

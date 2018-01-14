@@ -3,9 +3,11 @@ pipeline {
 
     stages {
         stage ('Build Docker Image') {
-            steps {
-                sh "/var/jenkins_home/docker/docker -H pipeline-lab01:2376 build -t hello-world:jenkins ."
-            }
+                script {
+                    /* This builds the actual image; synonymous to docker build on the command line */
+                    docker.withServer('tcp://pipeline-lab01:2376')
+                    docker.build("hello-world:jenkins2")
+                }
         }
     }
 }

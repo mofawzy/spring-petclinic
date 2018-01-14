@@ -31,10 +31,12 @@ pipeline {
             }
         }
         stage ('Build Docker Image') {
-            
-                /* This builds the actual image; synonymous to docker build on the command line */
-                docker.build("mofawzy/spring-petclinic")
-            
+            steps {
+                script {
+                    /* This builds the actual image; synonymous to docker build on the command line */
+                    docker.build("mofawzy/spring-petclinic")
+                }
+            }
         }
     }
 }

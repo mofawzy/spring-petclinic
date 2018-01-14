@@ -33,7 +33,7 @@ pipeline {
         stage ('Build Docker Image') {
             steps {
                 /* This builds the actual image; synonymous to docker build on the command line */
-                app = docker.build("mofawzy/spring-petclinic")
+                docker.build("mofawzy/spring-petclinic")
             }
         }
     }

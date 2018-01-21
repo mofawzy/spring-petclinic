@@ -45,9 +45,12 @@ pipeline {
 
                     script {
                         /* This builds the actual image; synonymous to docker build on the command line */
-                        docker.withServer('tcp://pipeline-lab01:2376') {
-                        docker.build("petclinic:1") 
-                        } 
+        	            docker.withRegistery ('https://hub.docker.com', 'dockerHub-credentials') {
+        	                docker.withServer('tcp://pipeline-lab01:2376') {
+	            	            def customImage = docker.build("mobayomie/petclinic:1") 
+    	    	                customImage.push()
+                    	    } 
+                    	}
                     }
                 }
             }

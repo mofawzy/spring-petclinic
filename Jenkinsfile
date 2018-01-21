@@ -34,10 +34,10 @@ pipeline {
                 steps {
                 	script {
                 	    try {
-                    	    sh "docker -H pipeline-lab01:2376 run --rm -i lukasmartinelli/hadolint < Dockerfile"                	
+	                    	    sh "docker -H pipeline-lab01:2376 run --rm -i lukasmartinelli/hadolint < Dockerfile"                	
                     	    }
                     	catch (exc) {
-                    	          sh "echo Dockerfile needs to be checked"
+                    	      	echo "Warning: Dockerfile failed quality checks"
                     	        
                     	      }
                 	    

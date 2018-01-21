@@ -46,7 +46,7 @@ pipeline {
                     script {
                         /* This builds the actual image; synonymous to docker build on the command line */
        	               
-           	            docker.withRegistry ('https://docker.io','dockerHub-credentials') {
+           	            docker.withRegistry ('','dockerHub-credentials') {
 			   	            docker.withServer('tcp://pipeline-lab01:2376') {
             		            def customImage = docker.build("mobayomie/petclinic:1") 
       		                    customImage.push()

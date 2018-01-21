@@ -48,7 +48,7 @@ pipeline {
        	                docker.withServer('tcp://pipeline-lab01:2376') {
             	            def customImage = docker.build("mobayomie/petclinic:1") 
                    	    } 
-           	            docker.withRegistery ('https://hub.docker.com','dockerHub-credentials') {
+           	            docker.withRegistry ('https://hub.docker.com','dockerHub-credentials') {
    	    	                customImage.push()
                     	}
                     }

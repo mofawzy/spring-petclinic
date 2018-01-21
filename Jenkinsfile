@@ -58,7 +58,7 @@ pipeline {
             }
             stage ('Start Container') {
                 steps {
-                    sh "docker -H pipeline-lab01:2376 run -d -p 7070:8080 --name petclinic petclinic:1"
+                    sh "docker -H pipeline-lab01:2376 run -d -p 7070:8080 --name petclinic mobayomie/petclinic:1"
                 }
             }
     }
